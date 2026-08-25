@@ -1,0 +1,337 @@
+/* ====================================================
+   bolos.css – Estilos exclusivos da página de bolos
+   ==================================================== */
+
+/* ── Page Hero ───────────────────────────────────── */
+.page-hero {
+  padding: 10rem 2rem 5rem;
+  background: linear-gradient(160deg, #fff5f9 0%, #fce8f0 50%, #fef2e8 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 60%, rgba(253,203,221,.45) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 30%, rgba(253,209,175,.35) 0%, transparent 50%);
+  pointer-events: none;
+}
+.page-hero-content { position: relative; z-index: 1; }
+.page-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 300;
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: .8rem;
+}
+.page-hero-title em { font-style: italic; color: var(--pink-dark); }
+.page-hero-content p { font-size: 1rem; color: var(--text-light); }
+
+/* ── Catálogo Section ────────────────────────────── */
+.catalogo-section {
+  padding: 5rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.catalogo-kids {
+  background: linear-gradient(135deg, rgba(253,209,175,.12) 0%, rgba(253,203,221,.08) 100%);
+  max-width: 100%;
+  padding: 5rem 2rem;
+}
+.catalogo-kids > * { max-width: 1280px; margin-left: auto; margin-right: auto; }
+.catalogo-kids .bolos-grid { max-width: 1280px; margin-left: auto; margin-right: auto; }
+
+.catalogo-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.catalogo-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 600;
+  color: var(--dark);
+  white-space: nowrap;
+}
+.catalogo-title.kids { color: #388e3c; }
+.catalogo-divider {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, var(--pink-mid), transparent);
+  border-radius: 99px;
+}
+.kids-divider {
+  background: linear-gradient(to right, #a5d6a7, transparent);
+}
+
+/* ── Bolo Card ───────────────────────────────────── */
+.bolos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+.bolo-card {
+  background: var(--white);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.bolo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-soft);
+}
+.bolo-img-wrap {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.bolo-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.bolo-card:hover .bolo-img-wrap img { transform: scale(1.05); }
+.bolo-img-overlay {
+  position: absolute; inset: 0;
+  background: rgba(45,21,32,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.bolo-card:hover .bolo-img-overlay { opacity: 1; }
+.btn-ver {
+  padding: .7rem 1.8rem;
+  border-radius: 99px;
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  cursor: pointer;
+  transition: all .25s;
+}
+.btn-ver:hover { background: var(--white); color: var(--pink-dark); }
+
+.bolo-details {
+  padding: 1.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+}
+.bolo-header-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .5rem;
+}
+.bolo-header-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.2;
+}
+.bolo-tag {
+  flex-shrink: 0;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: var(--pink-light);
+  color: var(--pink-dark);
+  padding: .22rem .7rem;
+  border-radius: 99px;
+}
+.kids-tag { background: #e8f5e9; color: #388e3c; }
+.bolo-resumo {
+  font-size: .9rem;
+  color: var(--text-light);
+  line-height: 1.65;
+  flex: 1;
+}
+.bolo-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  border-top: 1px solid var(--pink-light);
+  padding-top: .9rem;
+  margin-top: .2rem;
+}
+.bolo-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+}
+.btn-detalhe {
+  padding: .5rem 1.3rem;
+  border-radius: 99px;
+  border: 2px solid var(--pink-mid);
+  background: transparent;
+  color: var(--pink-dark);
+  font-family: 'Outfit', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.btn-detalhe:hover { background: var(--pink-dark); border-color: var(--pink-dark); color: var(--white); }
+
+/* ── Modal ───────────────────────────────────────── */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(45,21,32,.6);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+.modal-backdrop.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(.92);
+  z-index: 2001;
+  width: min(95vw, 940px);
+  max-height: 92vh;
+  background: var(--white);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(45,21,32,.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease, transform .35s cubic-bezier(.34,1.56,.64,1);
+  display: flex;
+  flex-direction: column;
+}
+.modal.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(-50%, -50%) scale(1);
+}
+.modal-close {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(45,21,32,.08);
+  color: var(--dark);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+  z-index: 10;
+}
+.modal-close:hover { background: var(--pink-dark); color: var(--white); }
+.modal-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  overflow-y: auto;
+  max-height: 92vh;
+}
+.modal-img-side {
+  position: relative;
+  min-height: 400px;
+}
+.modal-img-side img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.modal-info-side {
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  overflow-y: auto;
+}
+.modal-tag {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  background: var(--pink-light);
+  color: var(--pink-dark);
+  padding: .28rem .8rem;
+  border-radius: 99px;
+}
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.2;
+}
+.modal-desc {
+  font-size: .95rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+.modal-specs {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.modal-spec-row {
+  display: flex;
+  flex-direction: column;
+  padding: .75rem 1rem;
+  background: var(--pink-soft);
+  border-radius: var(--r-sm);
+  border-left: 3px solid var(--pink-mid);
+}
+.modal-spec-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: .15rem;
+}
+.modal-spec-value {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+.modal-spec-value.price-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--pink-dark);
+}
+.btn-modal-wa { margin-top: .5rem; justify-content: center; }
+
+/* Responsive modal */
+@media (max-width: 680px) {
+  .modal-inner { grid-template-columns: 1fr; }
+  .modal-img-side { min-height: 260px; position: relative; height: 260px; }
+  .modal-img-side img { position: absolute; }
+  .modal-info-side { padding: 2rem 1.5rem; }
+}
+
+@media (max-width: 600px) {
+  .bolos-grid { grid-template-columns: 1fr; }
+}
